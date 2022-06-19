@@ -303,7 +303,7 @@ async def cb_handler(bot, update):
                 return
               
         elif update.data == "start":
-            buttons = [[ InlineKeyboardButton("🔗 It's Unique", url=f"http://t.me/{temp.Bot_Username}?startgroup=true") ],
+            buttons = [[ InlineKeyboardButton("🔗 It's Unique", url=f"https://t.me/Its_unique_movies_adda") ],
                       [ InlineKeyboardButton("ℹ️ Help", callback_data="help"), InlineKeyboardButton("About 🤠", callback_data="about") ]] 
             await update.message.edit(START_MESSAGE.format(mention=update.from_user.mention, name=temp.Bot_Name, username=temp.Bot_Username), reply_markup=InlineKeyboardMarkup(buttons))
 
