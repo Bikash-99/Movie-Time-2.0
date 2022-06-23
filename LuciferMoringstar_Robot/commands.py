@@ -80,7 +80,7 @@ async def start(bot: lucifermoringstar_robot, update):
         return
 
     if len(update.command) != 2:
-        pr0fess0r_99 = [[ InlineKeyboardButton("🔗 Movie Time", url=f" ") ],
+        pr0fess0r_99 = [[ InlineKeyboardButton("🔗 Movie Time", url=f"https://t.me/+Uje9F5ZoxT43MGI1") ],
                        [ InlineKeyboardButton("ℹ️ Help", callback_data="help"), InlineKeyboardButton("About 🤠", callback_data="about") ]] 
         await bot.send_photo(photo=random.choice(PICS), chat_id=update.chat.id, caption=START_MESSAGE.format(mention=update.from_user.mention, name=temp.Bot_Name, username=temp.Bot_Username), reply_markup=InlineKeyboardMarkup(pr0fess0r_99))
 
