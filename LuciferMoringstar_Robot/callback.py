@@ -187,23 +187,23 @@ async def cb_handler(bot, update):
             settings = await get_settings(grpid)
             if settings is not None:
                 pr0fess0r_99 = [[
-                 InlineKeyboardButton('𝙵𝙸𝙻𝚃𝙴𝚁 𝙱𝚄𝚃𝚃𝙾𝙽', callback_data=f'settings#button#{settings["button"]}#{str(grp_id)}'),        
-                 InlineKeyboardButton('𝚂𝙸𝙽𝙶𝙻𝙴' if settings["button"] else '𝙳𝙾𝚄𝙱𝙻𝙴', callback_data=f'settings#button#{settings["button"]}#{str(grp_id)}')
+                 InlineKeyboardButton('Filter Button ', callback_data=f'settings#button#{settings["button"]}#{str(grp_id)}'),        
+                 InlineKeyboardButton('Single' if settings["button"] else 'Double', callback_data=f'settings#button#{settings["button"]}#{str(grp_id)}')
                  ],[
-                 InlineKeyboardButton('𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝙼𝚂𝙶', callback_data=f'settings#welcome#{settings["welcome"]}#{str(grp_id)}'),
-                 InlineKeyboardButton('𝙾𝙽' if settings["welcome"] else '𝙾𝙵𝙵', callback_data=f'settings#welcome#{settings["welcome"]}#{str(grp_id)}')           
+                 InlineKeyboardButton('Welcome MSG', callback_data=f'settings#welcome#{settings["welcome"]}#{str(grp_id)}'),
+                 InlineKeyboardButton('ON' if settings["welcome"] else 'OFF', callback_data=f'settings#welcome#{settings["welcome"]}#{str(grp_id)}')           
                  ],[  
-                 InlineKeyboardButton('𝚂𝙿𝙴𝙻𝙻 𝙲𝙷𝙴𝙲𝙺', callback_data=f'settings#spellmode#{settings["spellmode"]}#{str(grp_id)}'),
-                 InlineKeyboardButton('𝙾𝙽' if settings["spellmode"] else '𝙾𝙵𝙵', callback_data=f'settings#spellmode#{settings["spellmode"]}#{str(grp_id)}')           
+                 InlineKeyboardButton('Spell Mode', callback_data=f'settings#spellmode#{settings["spellmode"]}#{str(grp_id)}'),
+                 InlineKeyboardButton('ON' if settings["spellmode"] else 'OFF', callback_data=f'settings#spellmode#{settings["spellmode"]}#{str(grp_id)}')           
                  ],[
-                 InlineKeyboardButton('𝙱𝙾𝚃 𝙿𝙾𝚂𝚃𝙴𝚁', callback_data=f'settings#photo#{settings["photo"]}#{str(grp_id)}'),
-                 InlineKeyboardButton('𝙾𝙽' if settings["photo"] else '𝙾𝙵𝙵', callback_data=f'settings#photo#{settings["photo"]}#{str(grp_id)}')           
+                 InlineKeyboardButton('Bot Photo', callback_data=f'settings#photo#{settings["photo"]}#{str(grp_id)}'),
+                 InlineKeyboardButton('ON' if settings["photo"] else 'OFF', callback_data=f'settings#photo#{settings["photo"]}#{str(grp_id)}')           
                  ],[
-                 InlineKeyboardButton('𝚂𝙰𝚅𝙴 𝙵𝙸𝙻𝙴𝚂', callback_data=f'settings#savefiles#{settings["savefiles"]}#{str(grp_id)}'),
-                 InlineKeyboardButton('𝙾𝙽' if settings["savefiles"] else '𝙾𝙵𝙵', callback_data=f'settings#savefiles#{settings["savefiles"]}#{str(grp_id)}')           
+                 InlineKeyboardButton('Save Files', callback_data=f'settings#savefiles#{settings["savefiles"]}#{str(grp_id)}'),
+                 InlineKeyboardButton('ON' if settings["savefiles"] else 'OFF', callback_data=f'settings#savefiles#{settings["savefiles"]}#{str(grp_id)}')           
                  ],[
-                 InlineKeyboardButton('𝙵𝙸𝙻𝙴 𝙼𝙾𝙳𝙴', callback_data=f'settings#filemode#{settings["filemode"]}#{str(grp_id)}'),
-                 InlineKeyboardButton('𝙿𝙼' if settings["filemode"] else '𝙲𝙷𝙰𝙽𝙽𝙴𝙻', callback_data=f'settings#filemode#{settings["filemode"]}#{str(grp_id)}')           
+                 InlineKeyboardButton('File Mode', callback_data=f'settings#filemode#{settings["filemode"]}#{str(grp_id)}'),
+                 InlineKeyboardButton('PM' if settings["filemode"] else '𝙲𝙷𝙰𝙽𝙽𝙴𝙻', callback_data=f'settings#filemode#{settings["filemode"]}#{str(grp_id)}')           
                  ]]
                 pr0fess0r_99 = InlineKeyboardMarkup(pr0fess0r_99)
                 await update.message.edit_reply_markup(reply_markup=pr0fess0r_99)
@@ -231,7 +231,8 @@ async def cb_handler(bot, update):
 
             FILE_CAPTION = settings["caption"]
             caption = FILE_CAPTION.format(mention=update.from_user.mention, file_name=title, size=size, caption=files.caption)
-            buttons = [[ InlineKeyboardButton(f"🆘🤖 Owner", url="https://t.me/Panchmisali_7_Bot"), InlineKeyboardButton(f"🆘🤖 Our Channel", url="https://t.me/Panchmisali_2_Bot") ]]
+            buttons = [[ InlineKeyboardButton(f"🆘👤 Owner", url="https://t.me/hellodarklord"), InlineKeyboardButton(f"🆘🤖 Contact", url="https://t.me/Panchmisali_2_Bot")
+                      [  InlinekeyboardButton("❌ Close", callback_data="close") ]]
             if settings["savefiles"]:
                 protect_content = True
             else:
@@ -292,7 +293,8 @@ async def cb_handler(bot, update):
             title = files.file_name
             size = get_size(files.file_size)
             caption = CUSTOM_FILE_CAPTION.format(mention=update.from_user.mention, file_name=title, size=size, caption=files.caption)
-            buttons = [[ InlineKeyboardButton(f"🆘🤖 Owner", url="https://t.me/Panchmisali_7_Bot"), InlineKeyboardButton(f"🆘🤖 Our Channel", url="https://t.me/Panchmisali_2_Bot") ]]
+            buttons = [[ InlineKeyboardButton(f"🆘👤 Owner", url="https://t.me/hellodarklord"), InlineKeyboardButton(f"🆘🤖 Contact", url="https://t.me/Panchmisali_2_Bot")
+                      [  InlinekeyboardButton("❌ Close", callback_data="close") ]]
             try:
                 await bot.send_cached_media(chat_id=update.from_user.id, file_id=file_id, caption=caption, reply_markup=InlineKeyboardMarkup(buttons), protect_content=SAVE_FILES)            
             except Exception as e:
@@ -303,27 +305,27 @@ async def cb_handler(bot, update):
                 return
               
         elif update.data == "start":
-            buttons = [[ InlineKeyboardButton("🔗 It's Unique", url=f"https://t.me/Its_unique_movies_adda") ],
+            buttons = [[ InlineKeyboardButton("🔗 Movie Time", url=f"https://t.me/+Uje9F5ZoxT43MGI1") ],
                       [ InlineKeyboardButton("ℹ️ Help", callback_data="help"), InlineKeyboardButton("About 🤠", callback_data="about") ]] 
             await update.message.edit(START_MESSAGE.format(mention=update.from_user.mention, name=temp.Bot_Name, username=temp.Bot_Username), reply_markup=InlineKeyboardMarkup(buttons))
 
         elif update.data == "help":
             try:
-                buttons = [[ InlineKeyboardButton("𝙰𝚄𝚃𝙾𝙵𝙸𝙻𝚃𝙴𝚁𝚂", callback_data="autofilter"), InlineKeyboardButton("𝙲𝙾𝙽𝙽𝙴𝙲𝚃𝙸𝙾𝙽𝚂", callback_data="connection"), InlineKeyboardButton("𝙲𝙰𝙿𝚃𝙸𝙾𝙽", callback_data="filecaption")  ],
-                          [ InlineKeyboardButton("𝚆𝙴𝙻𝙲𝙾𝙼𝙴", callback_data="welcome"), InlineKeyboardButton("𝚂𝙿𝙴𝙻𝙻𝙲𝙷𝙴𝙲𝙺", callback_data="spellcheck"), InlineKeyboardButton("𝙼𝙸𝚂𝙲", callback_data="misc") ],
-                          [ InlineKeyboardButton("𝚂𝚃𝙰𝚃𝚄𝚂", callback_data="status"), InlineKeyboardButton("𝙷𝙾𝙼𝙴", callback_data="start") ]]                     
+                buttons = [[ InlineKeyboardButton("Auto Filter", callback_data="autofilter"), InlineKeyboardButton("Connection", callback_data="connection"), InlineKeyboardButton("File Caption", callback_data="filecaption")  ],
+                          [ InlineKeyboardButton("Welcome MSG", callback_data="welcome"), InlineKeyboardButton("Spelling Check", callback_data="spellcheck"), InlineKeyboardButton("Misc", callback_data="misc") ],
+                          [ InlineKeyboardButton("Status", callback_data="status"), InlineKeyboardButton("Start", callback_data="start") ]]                     
                 await update.message.edit(HELP_MESSAGE.format(mention=update.from_user.mention, name=temp.Bot_Name, username=temp.Bot_Username), reply_markup=InlineKeyboardMarkup(buttons))
             except MessageNotModified:
                 pass
         elif update.data == "about":
             try:
-                buttons = [[ InlineKeyboardButton("𝙷𝙾𝙼𝙴", callback_data="start"), InlineKeyboardButton("𝙲𝙻𝙾𝚂𝙴", callback_data="close") ]]                
+                buttons = [[ InlineKeyboardButton("Start", callback_data="start"), InlineKeyboardButton("Close", callback_data="close") ]]                
                 await update.message.edit(ABOUT_MESSAGE.format(name=CREATOR_NAME, username=CREATOR_USERNAME, py3_version=temp.PY3_VERSION, pyro_version=temp.PYRO_VERSION, version=temp.BOT_VERSION, source="https://github.com/PR0FESS0R-99/LuciferMoringstar-Robot"), reply_markup=InlineKeyboardMarkup(buttons))
             except MessageNotModified:
                 pass
         elif update.data == "usage":
             try:
-                buttons = [[ InlineKeyboardButton("⇇ 𝙱𝙰𝙲𝙺 ⇇", callback_data="about") ]]
+                buttons = [[ InlineKeyboardButton("⇇ Back ⇇", callback_data="about") ]]
                 await update.message.edit(USAGE_MESSAGE.format(CREATOR_NAME, CREATOR_USERNAME), reply_markup=InlineKeyboardMarkup(buttons))
             except MessageNotModified:
                 pass
@@ -332,7 +334,7 @@ async def cb_handler(bot, update):
                 files = await Media.count_documents()
                 users = await db.total_users_count()
                 chats = await db.total_chat_count()
-                buttons = [[ InlineKeyboardButton("⇇ 𝙱𝙰𝙲𝙺", callback_data="help"), InlineKeyboardButton("𝚁𝙴𝙵𝚁𝙴𝚂𝙷", callback_data="status"), InlineKeyboardButton("𝙲𝙻𝙾𝚂𝙴 ×", callback_data="close") ]]                                 
+                buttons = [[ InlineKeyboardButton("⇇ Back", callback_data="help"), InlineKeyboardButton("𝚁𝙴𝙵𝚁𝙴𝚂𝙷", callback_data="status"), InlineKeyboardButton("Close ×", callback_data="close") ]]                                 
                 await update.message.edit(STATUS_MESSAGE.format(bot_name=temp.Bot_Name, users=users, files=files, chats=chats), reply_markup=InlineKeyboardMarkup(buttons))
             except MessageNotModified:
                 pass
@@ -345,32 +347,32 @@ async def cb_handler(bot, update):
                 pass        
         elif update.data == "autofilter":
             try:
-                await update.message.edit(autofilter_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ 𝙱𝙰𝙲𝙺 ⇇", callback_data="help") ]] ))
+                await update.message.edit(autofilter_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ Back ⇇", callback_data="help") ]] ))
             except MessageNotModified:
                 pass
         elif update.data == "connection":
             try:
-                await update.message.edit(connection_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ 𝙱𝙰𝙲𝙺 ⇇", callback_data="help") ]] ))
+                await update.message.edit(connection_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ Back ⇇", callback_data="help") ]] ))
             except MessageNotModified:
                 pass
         elif update.data == "spellcheck":
             try:
-                await update.message.edit(spellcheck_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ 𝙱𝙰𝙲𝙺 ⇇", callback_data="help") ]] ))
+                await update.message.edit(spellcheck_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ Back ⇇", callback_data="help") ]] ))
             except MessageNotModified:
                 pass
         elif update.data == "welcome":
             try:
-                await update.message.edit(welcome_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ 𝙱𝙰𝙲𝙺 ⇇", callback_data="help") ]] ))
+                await update.message.edit(welcome_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ Back ⇇", callback_data="help") ]] ))
             except MessageNotModified:
                 pass
         elif update.data == "misc":
             try:
-                await update.message.edit(misc_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ 𝙱𝙰𝙲𝙺 ⇇", callback_data="help") ]] ))
+                await update.message.edit(misc_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ Back ⇇", callback_data="help") ]] ))
             except MessageNotModified:
                 pass
         elif update.data == "filecaption":
             try:
-                await update.message.edit(filecaption_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ 𝙱𝙰𝙲𝙺 ⇇", callback_data="help") ]] ))
+                await update.message.edit(filecaption_text, reply_markup=InlineKeyboardMarkup( [[ InlineKeyboardButton("⇇ Back ⇇", callback_data="help") ]] ))
             except MessageNotModified:
                 pass
 
