@@ -80,7 +80,7 @@ async def start(bot: lucifermoringstar_robot, update):
         return
 
     if len(update.command) != 2:
-        pr0fess0r_99 = [[ InlineKeyboardButton("🔗 It's Unique", url=f"https://t.me/Its_unique_movies_adda") ],
+        pr0fess0r_99 = [[ InlineKeyboardButton("🔗 Movie Time", url=f" ") ],
                        [ InlineKeyboardButton("ℹ️ Help", callback_data="help"), InlineKeyboardButton("About 🤠", callback_data="about") ]] 
         await bot.send_photo(photo=random.choice(PICS), chat_id=update.chat.id, caption=START_MESSAGE.format(mention=update.from_user.mention, name=temp.Bot_Name, username=temp.Bot_Username), reply_markup=InlineKeyboardMarkup(pr0fess0r_99))
 
@@ -90,12 +90,12 @@ async def admin(bot: lucifermoringstar_robot, update):
 
 @lucifermoringstar_robot.on_message(filters.command(["about"]) & filters.private, group=3)
 async def about(bot: lucifermoringstar_robot, update):
-    pr0fess0r_99 = [[ InlineKeyboardButton("𝙷𝙾𝙼𝙴", callback_data="start"), InlineKeyboardButton("𝙲𝙻𝙾𝚂𝙴", callback_data="close") ]]                                  
+    pr0fess0r_99 = [[ InlineKeyboardButton("𝙷𝙾𝙼𝙴", callback_data="start"), InlineKeyboardButton("Close", callback_data="close") ]]                                  
     await bot.send_photo(photo=random.choice(PICS), chat_id=update.chat.id, caption=ABOUT_MESSAGE.format(name = CREATOR_NAME, username = CREATOR_USERNAME, py3_version = temp.PY3_VERSION, pyro_version = temp.PYRO_VERSION, version = temp.BOT_VERSION, source = "https://github.com/PR0FESS0R-99/LuciferMoringstar-Robot"), reply_markup=InlineKeyboardMarkup(pr0fess0r_99))
 
 @lucifermoringstar_robot.on_message(filters.command(["usage"]) & filters.private, group=4)
 async def usage(bot: lucifermoringstar_robot, update):
-    pr0fess0r_99 = [[ InlineKeyboardButton("🗑️ 𝙳𝙴𝙻𝙴𝚃𝙴 🗑️", callback_data="close") ]]
+    pr0fess0r_99 = [[ InlineKeyboardButton("🗑️ Close 🗑️", callback_data="close") ]]
     await bot.send_photo(photo=random.choice(PICS), chat_id=update.chat.id, caption=USAGE_MESSAGE.format(CREATOR_NAME, CREATOR_USERNAME), reply_markup=InlineKeyboardMarkup(pr0fess0r_99))
 
 @lucifermoringstar_robot.on_message(filters.command(["broadcast"]) & filters.private, group=5)
@@ -135,12 +135,12 @@ async def settings(bot, update):
     settings = await get_settings(grp_id)
 
     if settings is not None:
-        buttons = [[ InlineKeyboardButton('𝙵𝙸𝙻𝚃𝙴𝚁 𝙱𝚄𝚃𝚃𝙾𝙽', callback_data=f'settings#button#{settings["button"]}#{grp_id}'), InlineKeyboardButton('𝚂𝙸𝙽𝙶𝙻𝙴' if settings["button"] else '𝙳𝙾𝚄𝙱𝙻𝙴', callback_data=f'settings#button#{settings["button"]}#{grp_id}') ],
-                   [ InlineKeyboardButton('𝚆𝙴𝙻𝙲𝙾𝙼𝙴 𝙼𝚂𝙶', callback_data=f'settings#welcome#{settings["welcome"]}#{grp_id}'), InlineKeyboardButton('𝙾𝙽' if settings["welcome"] else '𝙾𝙵𝙵', callback_data=f'settings#welcome#{settings["welcome"]}#{grp_id}') ],         
-                   [ InlineKeyboardButton('𝚂𝙿𝙴𝙻𝙻 𝙲𝙷𝙴𝙲𝙺', callback_data=f'settings#spellmode#{settings["spellmode"]}#{grp_id}'), InlineKeyboardButton('𝙾𝙽' if settings["spellmode"] else '𝙾𝙵𝙵', callback_data=f'settings#spellmode#{settings["spellmode"]}#{grp_id}') ],          
-                   [ InlineKeyboardButton('𝙱𝙾𝚃 𝙿𝙾𝚂𝚃𝙴𝚁', callback_data=f'settings#photo#{settings["photo"]}#{grp_id}'), InlineKeyboardButton('𝙾𝙽' if settings["photo"] else '𝙾𝙵𝙵', callback_data=f'settings#photo#{settings["photo"]}#{grp_id}') ],
-                   [ InlineKeyboardButton('𝚂𝙰𝚅𝙴 𝙵𝙸𝙻𝙴𝚂', callback_data=f'settings#savefiles#{settings["savefiles"]}#{grp_id}'), InlineKeyboardButton('𝙾𝙽' if settings["savefiles"] else '𝙾𝙵𝙵', callback_data=f'settings#savefiles#{settings["savefiles"]}#{grp_id}') ],
-                   [ InlineKeyboardButton('𝙵𝙸𝙻𝙴 𝙼𝙾𝙳𝙴', callback_data=f'settings#filemode#{settings["filemode"]}#{grp_id}'), InlineKeyboardButton('𝙿𝙼' if settings["filemode"] else '𝙲𝙷𝙰𝙽𝙽𝙴𝙻', callback_data=f'settings#filemode#{settings["filemode"]}#{grp_id}') ]]
+        buttons = [[ InlineKeyboardButton('Filter Button', callback_data=f'settings#button#{settings["button"]}#{grp_id}'), InlineKeyboardButton('SINGLE' if settings["button"] else 'DOUBLE', callback_data=f'settings#button#{settings["button"]}#{grp_id}') ],
+                   [ InlineKeyboardButton('Welcome MSG', callback_data=f'settings#welcome#{settings["welcome"]}#{grp_id}'), InlineKeyboardButton('ON' if settings["welcome"] else 'OFF', callback_data=f'settings#welcome#{settings["welcome"]}#{grp_id}') ],         
+                   [ InlineKeyboardButton('Spell Mode', callback_data=f'settings#spellmode#{settings["spellmode"]}#{grp_id}'), InlineKeyboardButton('ON' if settings["spellmode"] else 'OFF', callback_data=f'settings#spellmode#{settings["spellmode"]}#{grp_id}') ],          
+                   [ InlineKeyboardButton('Bot Photo', callback_data=f'settings#photo#{settings["photo"]}#{grp_id}'), InlineKeyboardButton('ON' if settings["photo"] else 'OFF', callback_data=f'settings#photo#{settings["photo"]}#{grp_id}') ],
+                   [ InlineKeyboardButton('Save Files', callback_data=f'settings#savefiles#{settings["savefiles"]}#{grp_id}'), InlineKeyboardButton('ON' if settings["savefiles"] else 'OFF', callback_data=f'settings#savefiles#{settings["savefiles"]}#{grp_id}') ],
+                   [ InlineKeyboardButton('File Mode', callback_data=f'settings#filemode#{settings["filemode"]}#{grp_id}'), InlineKeyboardButton('PM' if settings["filemode"] else '𝙲𝙷𝙰𝙽𝙽𝙴𝙻', callback_data=f'settings#filemode#{settings["filemode"]}#{grp_id}') ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await update.reply_text(text=SETTINGS_MESSAGE.format(title=title), reply_markup=reply_markup, disable_web_page_preview=True, reply_to_message_id=update.id)
         
