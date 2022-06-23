@@ -188,7 +188,7 @@ async def cb_handler(bot, update):
             if settings is not None:
                 pr0fess0r_99 = [[
                  InlineKeyboardButton('Filter Button ', callback_data=f'settings#button#{settings["button"]}#{str(grp_id)}'),        
-                 InlineKeyboardButton('Single' if settings["button"] else 'Double', callback_data=f'settings#button#{settings["button"]}#{str(grp_id)}')
+                 InlineKeyboardButton('SINGLE' if settings["button"] else 'DOUBLE', callback_data=f'settings#button#{settings["button"]}#{str(grp_id)}')
                  ],[
                  InlineKeyboardButton('Welcome MSG', callback_data=f'settings#welcome#{settings["welcome"]}#{str(grp_id)}'),
                  InlineKeyboardButton('ON' if settings["welcome"] else 'OFF', callback_data=f'settings#welcome#{settings["welcome"]}#{str(grp_id)}')           
