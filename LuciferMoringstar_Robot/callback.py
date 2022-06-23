@@ -233,9 +233,9 @@ async def cb_handler(bot, update):
             caption = FILE_CAPTION.format(mention=update.from_user.mention, file_name=title, size=size, caption=files.caption)
             buttons = [[ InlineKeyboardButton(f"🆘👤 Owner", url="https://t.me/hellodarklord"), InlineKeyboardButton(f"🆘🤖 Contact", url="https://t.me/Panchmisali_2_Bot")
                       [  InlinekeyboardButton("❌ Close", callback_data="close") ]]
-            if settings["savefiles"]:
+           if settings["savefiles"]:
                 protect_content = True
-            else:
+           else:
                 protect_content = False
 
             try:
