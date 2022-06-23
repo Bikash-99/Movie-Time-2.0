@@ -231,10 +231,8 @@ async def cb_handler(bot, update):
 
             FILE_CAPTION = settings["caption"]
             caption = FILE_CAPTION.format(mention=update.from_user.mention, file_name=title, size=size, caption=files.caption)
-            buttons = [[ InlineKeyboardButton(f"🆘👤 Owner", url="https://t.me/hellodarklord"), InlineKeyboardButton(f"🆘🤖 Contact", url="https://t.me/hellodarklord"),
-                      [  InlinekeyboardButton(f"❌ Close", callback_data="close") ]]
-               
-                if settings["savefiles"]:
+            buttons = [[ InlineKeyboardButton(f"🆘👤 Owner", url="https://t.me/hellodarklord"), InlineKeyboardButton(f"🆘🤖 Contact", url="https://t.me/hellodarklord") ]]
+            if settings["savefiles"]:
                 protect_content = True
             else:
                 protect_content = False
@@ -294,8 +292,7 @@ async def cb_handler(bot, update):
             title = files.file_name
             size = get_size(files.file_size)
             caption = CUSTOM_FILE_CAPTION.format(mention=update.from_user.mention, file_name=title, size=size, caption=files.caption)
-            buttons = [[ InlineKeyboardButton(f"🆘👤 Owner", url="https://t.me/hellodarklord"), InlineKeyboardButton(f"🆘🤖 Contact", url="https://t.me/hellodarklord"),
-                      [  InlinekeyboardButton(f"❌ Close", callback_data="close") ]]
+            buttons = [[ InlineKeyboardButton(f"🆘👤 Owner", url="https://t.me/hellodarklord"), InlineKeyboardButton(f"🆘🤖 Contact", url="https://t.me/hellodarklord") ]]
             try:
                 await bot.send_cached_media(chat_id=update.from_user.id, file_id=file_id, caption=caption, reply_markup=InlineKeyboardMarkup(buttons), protect_content=SAVE_FILES)            
             except Exception as e:
