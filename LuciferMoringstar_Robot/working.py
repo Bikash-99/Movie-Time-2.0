@@ -33,7 +33,7 @@ from LuciferMoringstar_Robot.translation import CHAT_LOGS_MESSAGE
 from database.chats_users_mdb import db
 
 
-@lucifermoringstar_robot.on_message(filters.text & filters.private & filters.incoming & ~filters.command(COMMANDS) & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming & ~filters.command(COMMANDS))
+@lucifermoringstar_robot.on_message(filters.text & filters.private & filters.incoming & ~filters.command(COMMANDS) & filters.user(AUTH_USER) if AUTH_USER else filters.text & filters.private & filters.incoming & ~filters.command(COMMANDS))
 async def pmbot_filters(client, update):
     if not await db.is_user_exist(update.from_user.id):
         await db.add_user(update.from_user.id)
