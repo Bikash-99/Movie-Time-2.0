@@ -35,6 +35,6 @@ FILTER_DEL_SECOND = int(os.environ.get("FILTER_DEL_SECOND", "600"))
 
 # AutoFilter
 AUTH_GROUPS = os.environ.get("AUTH_GROUPS", "")
-AUTH_USER = [int(user) if search.search(user) else user for user in os.environ.get('AUTH_USER', '5596536153').split()]
+AUTH_USER = [int(user) if search.search(user) else user for user in os.environ.get('AUTH_USER', '').split()]
 FILTER_BUTTONS = os.environ.get("FILTER_BUTTONS", "10")
 PROTECT_FILES = is_enabled((os.environ.get('PROTECT_FILES', "True")), True) 
