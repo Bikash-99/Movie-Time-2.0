@@ -3,13 +3,13 @@ from pyrogram import Client, emoji, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultCachedDocument
 
 from database.autofilter_mdb import get_search_results
-from LuciferMoringstar_Robot import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
+from LuciferMoringstar_Robot import CACHE_TIME, AUTH_USER, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 from LuciferMoringstar_Robot.functions import get_size, is_subscribed
 
 logger = logging.getLogger(__name__)
-cache_time = 0 if AUTH_USERS or AUTH_CHANNEL else CACHE_TIME
+cache_time = 0 if AUTH_USER or AUTH_CHANNEL else CACHE_TIME
 
-@Client.on_inline_query(filters.user(AUTH_USERS) if AUTH_USERS else None)
+@Client.on_inline_query(filters.user(AUTH_USER) if AUTH_USER else None)
 async def answer(bot, update):
 
     if AUTH_CHANNEL and not await is_subscribed(bot, update):
