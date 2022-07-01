@@ -28,7 +28,7 @@ from pyrogram import Client as lucifermoringstar_robot, filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
 from LuciferMoringstar_Robot.modules import group_filters, pm_filters
-from LuciferMoringstar_Robot import AUTH_GROUPS, AUTH_USERS, LOG_CHANNEL, temp, COMMANDS, AUTH_CHANNEL
+from LuciferMoringstar_Robot import AUTH_GROUPS, AUTH_USER, LOG_CHANNEL, temp, COMMANDS, AUTH_CHANNEL
 from LuciferMoringstar_Robot.translation import CHAT_LOGS_MESSAGE
 from database.chats_users_mdb import db
 
