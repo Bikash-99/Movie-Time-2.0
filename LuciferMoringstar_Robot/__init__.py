@@ -1,7 +1,7 @@
 # MIT License
 # Copyright (c) 2022 Muhammed
 from os import environ
-from config import ( is_enabled, search, AUTH_GROUPS, AUTH_USERS, ADMINS, SUPPORT_CHAT, CREATOR_USERNAME, CREATOR_NAME, AUTH_CHANNEL,
+from config import ( is_enabled, search, AUTH_GROUPS, AUTH_USER, ADMINS, SUPPORT_CHAT, CREATOR_USERNAME, CREATOR_NAME, AUTH_CHANNEL,
     PICS, BOT_TOKEN, API_ID, API_HASH, DATABASE_NAME, DATABASE_URI, CHANNELS, LOG_CHANNEL, FILTER_BUTTONS, GET_FILECHANNEL, FILTER_DEL_SECOND )
 from .translation import SPELLMODE_MESSAGE, WELCOME_MESSAGE, REQUEST_MESSAGE, FILECAPTION_MESSAGE, START_MESSAGE
 
@@ -23,7 +23,7 @@ CHANNELS = CHANNELS
 LOG_CHANNEL = int(LOG_CHANNEL)
 ADMINS = [int(admin) if search.search(admin) else admin for admin in ADMINS.split()]
 AUTH_GROUPS = [int(admin) for admin in AUTH_GROUPS.split()]
-AUTH_USERS = (auth_users + ADMINS) if AUTH_USERS else []
+AUTH_USER = (auth_user + ADMINS) if AUTH_USER else []
 AUTH_CHANNEL = int(AUTH_CHANNEL) if AUTH_CHANNEL and search.search(AUTH_CHANNEL) else None
 SUPPORT = SUPPORT_CHAT
 GET_FILECHANNEL = int(GET_FILECHANNEL)
